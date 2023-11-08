@@ -1,6 +1,8 @@
-
+// Maven Analytics
 // Power BI - Nov 2023
-// DAX Exercises
+// LOGICAL FUNCTIONS Notes
+
+
 // Switch TRUE function is checking when the criteria is always TRUE or it moves to the next line
 
 Price Point = SWITCH(
@@ -12,7 +14,7 @@ Price Point = SWITCH(
 
 // Switch Function
 // Creating a month number in DAX
-// 
+
 
 Month Number (DAX) = 
 SWITCH(
@@ -48,3 +50,29 @@ Income Level =
     IF('Customer Lookup'[AnnualIncome] >= 50000, "Average",
     "Low"
 )))
+
+// If and Switch
+// If Example
+
+Education Category =
+IF( 
+    'Customer Lookup'[EducationLevel] = "High School" || 'Customer Lookup'[EducationLevel] =  "Partial High School",
+    "High School",
+    IF
+        ('Customer Lookup'[EducationLevel] = "Bachelors" || 'Customer Lookup'[EducationLevel] =  "Partial College",
+        "Undergrad",
+     "Graduate"
+   )
+)
+
+// Switch Example
+
+Education Category 2 =
+SWITCH(
+    'Customer Lookup'[EducationLevel],
+    "High School", "High School",
+    "Partial High School", "High School",
+    "Bachelors", "Undergrad",
+    "Partial College", "Undergrad",
+    "Graduate"
+)

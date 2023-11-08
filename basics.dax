@@ -1,0 +1,12 @@
+// UNDERSTANDING DAX CALCULATIONS
+// LR Nov 2023
+// Notes from the book The Definite Guide to DAX
+
+// The general format is to write the table name enclosed in single quotation marks, followed by the column name enclosed in square brackets
+
+'Sales'[Price] // We can omit the singles quotes unless the name of the table starts with a number or spaces. 
+
+/* The de facto standard is to always use the table name in column references and always avoid it in measure references. The earlier you start adopting this standard, the easier your life with DAX will be. Therefore, you should get used to this way of referencing columns and measures. See below*/
+
+Sales[Price] * 2 // References a column in the Sales table
+[Discount Amount] * 2 // References a MEASURE
