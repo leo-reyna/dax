@@ -1,0 +1,51 @@
+
+
+// Switch TRUE function is checking when the criteria is always TRUE or it moves to the next line
+
+Price Point = SWITCH(
+    TRUE(),
+    'Product Lookup'[ProductPrice] > 500, "High",
+    'Product Lookup'[ProductPrice] > 100, "Mid-Range",
+    "Low"
+)
+
+// Switch Function
+// Creating a month number in DAX
+// 
+
+Month Number (DAX) = 
+SWITCH(
+    'Calendar Lookup'[Month Name],
+    "January", "1",
+    "February", "2",
+    "March","3",
+    "April","4",
+    "May", "5",    
+    "June", "6",   
+    "July", "7",
+    "August", "8",
+    "September", "9",
+    "October", "10",
+    "November", "11",
+    "December", "12"
+ )
+
+
+// Created column to identify customer tier (1) and income tiers  (2) amongst customers
+// 1:
+
+Customer Priority = 
+IF(
+    'Customer Lookup'[AnnualIncome] > 100000 && 
+    'Customer Lookup'[Parent] = "Yes",
+    "Priority",
+    "Standard"
+)
+
+// 2:
+Income Level = 
+    IF('Customer Lookup'[AnnualIncome] >= 15000, "Very High",
+    IF('Customer Lookup'[AnnualIncome] >= 10000, "High",
+    IF('Customer Lookup'[AnnualIncome] >= 50000, "Average",
+    "Low"
+)))
