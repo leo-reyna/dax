@@ -1,5 +1,6 @@
 
-
+// Power BI - Nov 2023
+// DAX Exercises
 // Switch TRUE function is checking when the criteria is always TRUE or it moves to the next line
 
 Price Point = SWITCH(
@@ -33,7 +34,6 @@ SWITCH(
 
 // Created column to identify customer tier (1) and income tiers  (2) amongst customers
 // 1:
-
 Customer Priority = 
 IF(
     'Customer Lookup'[AnnualIncome] > 100000 && 
@@ -41,7 +41,6 @@ IF(
     "Priority",
     "Standard"
 )
-
 // 2:
 Income Level = 
     IF('Customer Lookup'[AnnualIncome] >= 15000, "Very High",
