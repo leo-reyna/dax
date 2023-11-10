@@ -34,8 +34,9 @@ SWITCH(
  )
 
 
-// Created column to identify customer tier (1) and income tiers  (2) amongst customers
-// 1:
+// Created column to identify customer tier (1) and INCOME  tiers  (2) amongst customers
+// 1: Anyone who has an income over 100K and is a parent to be categorized as "Priority" otherwise 
+// customer will be "Standard"
 Customer Priority = 
 IF(
     'Customer Lookup'[AnnualIncome] > 100000 && 
@@ -43,7 +44,7 @@ IF(
     "Priority",
     "Standard"
 )
-// 2:
+// 2: Determine what customer has Very High , High and Average income
 Income Level = 
     IF('Customer Lookup'[AnnualIncome] >= 15000, "Very High",
     IF('Customer Lookup'[AnnualIncome] >= 10000, "High",
