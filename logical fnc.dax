@@ -1,6 +1,7 @@
 // Maven Analytics
 // Power BI - Nov 2023
-// LOGICAL FUNCTIONS Notes
+// LOGICAL FUNCTIONS Notes and Exercises from  Maven Analytics
+
 
 
 // Switch TRUE function is checking when the criteria is always TRUE or it moves to the next line
@@ -34,9 +35,10 @@ SWITCH(
  )
 
 
-// Created column to identify customer tier (1) and INCOME  tiers  (2) amongst customers
+// Created a calculated column to identify customer tier (1) and INCOME  tiers  (2) amongst customers
 // 1: Anyone who has an income over 100K and is a parent to be categorized as "Priority" otherwise 
 // customer will be "Standard"
+
 Customer Priority = 
 IF(
     'Customer Lookup'[AnnualIncome] > 100000 && 
@@ -52,8 +54,9 @@ Income Level =
     "Low"
 )))
 
-// If and Switch
+// If and Switch • Calculated Columns DAX
 // If Example
+// 1: Segragate customer by education level and categorize them by Partial High School, Grad and Undergrad
 
 Education Category =
 IF( 
@@ -66,7 +69,7 @@ IF(
    )
 )
 
-// Switch Example
+// Switch Example 2
 
 Education Category 2 =
 SWITCH(
