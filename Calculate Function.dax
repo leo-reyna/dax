@@ -1,0 +1,29 @@
+// The Calculate Function
+// Solution Request from VP
+// Maven Analytics
+
+// Request: Sales Managers and VPs are raising concersn about the number of bike returnds they're seeing recently
+
+
+// Finding out Bike Sales
+Bike Sales = CALCULATE
+                    ([Quantity Sold], 
+                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    )
+// Answer: 427 bikes
+
+// Finding out Bike Returns
+Bike Returns = CALCULATE
+                    ([Total Returns], 
+                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    )
+// Answer: 13,929 bikes sold
+
+// Finding out Bike Return Rate
+Bike Return Rate = CALCULATE
+                    ([Return Rate],
+                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    )
+// Answer: Return rate of 3.08%
+// In Conclusion: there has not been a spike in returns considering out quantity of 
+// bikes sold. 
