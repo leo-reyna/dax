@@ -1,4 +1,4 @@
-// The Calculate Function
+// The Calculate Function 
 // Solution Request from VP
 // Maven Analytics
 
@@ -7,22 +7,22 @@
 
 // Finding out Bike Sales
 Bike Sales = CALCULATE
-                    ([Quantity Sold], 
-                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    ([Quantity Sold], // Measure
+                    'Product Categories Lookup'[CategoryName] = "Bikes" // Filter
                     )
 // Answer: 427 bikes
 
 // Finding out Bike Returns
 Bike Returns = CALCULATE
-                    ([Total Returns], 
-                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    ([Total Returns], // Measure
+                    'Product Categories Lookup'[CategoryName] = "Bikes"  // Filter
                     )
 // Answer: 13,929 bikes sold
 
 // Finding out Bike Return Rate
 Bike Return Rate = CALCULATE
-                    ([Return Rate],
-                    'Product Categories Lookup'[CategoryName] = "Bikes"
+                    ([Return Rate], // Measure
+                    'Product Categories Lookup'[CategoryName] = "Bikes" // Filter
                     )
 // Answer: Return rate of 3.08%
 // In Conclusion: there has not been a spike in returns considering out quantity of 
