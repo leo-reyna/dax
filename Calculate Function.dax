@@ -2,7 +2,8 @@
 // Solution Request from VP
 // Maven Analytics
 
-// Request: Sales Managers and VPs are raising concersn about the number of bike returnds they're seeing recently
+// Request 1
+// Sales Managers and VPs are raising concersn about the number of bike returnds they're seeing recently
 
 
 // Finding out Bike Sales
@@ -27,3 +28,12 @@ Bike Return Rate = CALCULATE
 // Answer: Return rate of 3.08%
 // In Conclusion: there has not been a spike in returns considering out quantity of 
 // bikes sold. 
+
+// Request 2 
+// Create two new measures, one to call ALL returns (regardless of filter context and another that divides Total Returns by All returns
+// that should allow us to see the % of returns by different products and product categories
+
+All Returns = CALCULATE([Total Returns], all('Returns Data')) // creating the measure to 
+
+Percent of All Returns = DIVIDE([Total Returns],[All Returns])
+// The highest return rate goes to Accesories with 61.64% and Clothing with the lowest at 14.76%
