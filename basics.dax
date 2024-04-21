@@ -11,3 +11,4 @@ You should get used to this way of referencing columns and measures. See below*/
 
 Sales[Price] * 2 // References a column in the Sales table
 [Discount Amount] * 2 // References a MEASURE
+

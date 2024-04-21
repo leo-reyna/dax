@@ -1,0 +1,68 @@
+// DAX:  Text, Date Functions
+// LR Nov 2023 - 
+// Microsoft PowerBI for Business Intelligence 2023
+// Maven Analytics
+
+// RETRIEVE EVERYTHING LEFT OF THE COLUMN PRODUCT SKU AND BEFORE THE HYPHEN.
+
+SKU Category = 
+LEFT(
+    'Product Lookup'[ProductSKU],
+    SEARCH(
+        "-",
+        'Product Lookup'[ProductSKU]
+        )
+        -1
+)
+
+// Find weekday or Weekend
+
+Weekend = 
+IF(
+    'Calendar Lookup'[Day of Week] = 6 ||
+    'Calendar Lookup'[Day of Week] = 7,
+    "Weekend",
+    "Weekday"
+)
+
+// Shorter version using IN in a list {x,y}
+
+Weekend = 
+IF(
+    'Calendar Lookup'[Day of Week] IN {6, 7}, //defining a list of values, is the value is 6 or 7, label it weekend
+    "Weekend",
+    "Weekday"
+)
+// 10-Day Rolling Revenue
+10-Day Rolling Revenue = 
+CALCULATE(
+    [Total Revenue], 
+    DATESINPERIOD('Calendar Lookup'[Date],  
+    MAX('Calendar Lookup'[Date]), -10, DAY)
+ )
+
+// DAY OF WEEK
+Day of Week = WEEKDAY('Calendar Lookup'[Date],2)
+
+// Count of Orders - Orders Total
+Total Orders = DISTINCTCOUNT('Sales Data'[OrderNumber])
+
+ // Previous months calculations
+ Previous Month Order = CALCULATE( 
+    [Total Orders], 
+    DATEADD(DATESMTD('Calendar Lookup'[Date]), -1, MONTH)
+    )
+
+Previous Month Return = CALCULATE( 
+    [Total Returns], 
+    DATEADD(DATESMTD('Calendar Lookup'[Date]), -1, MONTH)
+    )
+
+// YTD Caluclations
+YTD Revenue = CALCULATE( [Total Revenue], 
+DATESYTD('Calendar Lookup'[Date]))
+
+// Total Revenue
+Total Revenue = sumx('Sales Data', 
+'Sales Data'[OrderQuantity] * 
+RELATED('Product Lookup'[ProductPrice]))
