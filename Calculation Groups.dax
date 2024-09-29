@@ -1,0 +1,51 @@
+ 
+// LReyna
+// September 2024 - Adventure Works
+// Creating a Calculation Groups in PowerBi Time Intelligenece Measure
+
+// Current Measure
+Current Measure = SELECTEDMEASURE()
+
+// YTD 
+YTD = 
+CALCULATE(SELECTEDMEASURE(),
+DATESYTD('Calendar Lookup'[Date]))
+
+// Quarter to Date
+
+QTD = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    DATESQTD(
+        'Calendar Lookup'[Date]
+    ))
+
+// Previous Month
+
+Previous Month = 
+CALCULATE(
+    SELECTEDMEASURE(),
+    DATEADD('Calendar Lookup'[Date],
+    -1,
+    MONTH)
+)
+ 
+ 
+ // AdverntureWorks Report
+
+ MOM % ▲ = 
+    VAR CurrentValue = SELECTEDMEASURE()
+    VAR PreviousValue =
+    Calculate(
+        SELECTEDMEASURE(),
+        DATEADD('Calendar Lookup'[Date],
+        -1,
+         MONTH
+    )
+    )
+VAR DiffValue = CurrentValue - PreviousValue
+RETURN
+DIVIDE(
+    DiffValue, 
+    PreviousValue
+    )
