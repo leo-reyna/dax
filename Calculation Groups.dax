@@ -1,6 +1,7 @@
  
 // LReyna
-// September 2024 - Adventure Works
+// September 2024 - Adventure Works Microsoft 
+// Power BI Desktop for Business Intelligence 
 // Creating a Calculation Groups in PowerBi Time Intelligenece Measure
 
 // Current Measure
@@ -32,7 +33,7 @@ CALCULATE(
  
  
  // AdverntureWorks Report
-
+ // alt + 30 = ▲
  MOM % ▲ = 
     VAR CurrentValue = SELECTEDMEASURE()
     VAR PreviousValue =
