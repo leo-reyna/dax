@@ -44,6 +44,7 @@ CALCULATE(
          MONTH
     )
     )
+    
 VAR DiffValue = CurrentValue - PreviousValue
 RETURN
 DIVIDE(
